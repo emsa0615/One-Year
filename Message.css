@@ -1,0 +1,83 @@
+body {
+    background-image: url('bg.jpg');
+    background-size: contain;
+    backdrop-filter: blur(10px);
+    background-position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background: #94d9f6; */
+    gap: 20px;
+}
+h1{
+    font-family: "Brush Script MT", cursive;
+    color:#f8f8f8;
+}
+/* Envelope container */
+.envelope {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Flap of the envelope */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d0d0d0;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 3;
+}
+
+/* Letter inside */
+.letter {
+  position: absolute;
+  bottom: -100%;
+  left: 25px;
+  width: 450px;
+  height: 350px;
+  background: linear-gradient(180deg, #770308, #e95959);
+  border-radius: 4px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: bottom 1s ease;
+  z-index: 10;
+  border: 1px black;
+}
+button{
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #ff5c5c, #ff0000);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 1px;
+
+  /* smooth animation */
+  transition: all 0.3s ease;
+}
+button:hover{
+  transform: scale(1.1);
+  box-shadow:  0 0 20px rgba(255, 92, 92, 0.8),
+  0 0 40px rgba(255, 0, 0, 0.6);
+}
+/* When opened */
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  bottom: 10px;
+}

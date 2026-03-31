@@ -1,0 +1,125 @@
+/* Reset and base layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+/* Heading */
+#head {
+  font-size: 2.5rem;
+  color: rgb(92, 0, 0);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Blurry full-page background */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('image.jpg');
+  background-size: contain;
+  background-position: center;
+  filter: blur(10px);
+  transform: scale(1.05);
+  z-index: -1;
+}
+
+/* Dark overlay */
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Centering container */
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Card */
+.card {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 2rem;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fadeUp 0.6s ease;
+}
+
+/* Text */
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Button / Option */
+.options{
+  display: flex;
+  justify-content: space-around;
+}
+.option {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff0000, #b30000);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+  .card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  #head {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+}
