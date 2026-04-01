@@ -1,4 +1,0 @@
-[[headers]]
-  for = "/*"
-  [headers.values]
-  Basic-Auth = "Naisaka:05/04/2026"
