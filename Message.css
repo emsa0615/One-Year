@@ -53,6 +53,9 @@ h1{
   transition: bottom 1s ease;
   z-index: 10;
   border: 1px black;
+
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 button{
   padding: 12px 28px;
